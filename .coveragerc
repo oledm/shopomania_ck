@@ -1,0 +1,5 @@
+[run]
+include = shopomania_ck/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
