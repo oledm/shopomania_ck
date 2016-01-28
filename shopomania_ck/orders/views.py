@@ -64,6 +64,7 @@ class FileUploadView(APIView):
                                 customer_id=customer_.id, order_id=order.id)
 
 
-def index(request):
-    print('Main rendering')
-    return render(request, 'main/main.html', {'home': reverse('main:index')})
+#def index(request):
+#    print('Base template rendering')
+#    #return render(request, 'main/main.html', {'home': reverse('main:index')})
+#    return render(request, 'base.html', {'home': reverse('main:index')})
