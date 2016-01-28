@@ -22,7 +22,8 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
-    url(r'^orders/', include("shopomania_ck.orders.urls", namespace="orders")),
+    #url(r'^orders/', include("shopomania_ck.orders.urls", namespace="orders")),
+    url(r'^api/', include('shopomania_ck.core.api', namespace='api')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -50,6 +50,7 @@ LOCAL_APPS = (
     # Your stuff: custom apps go here
     'shopomania_ck.orders',
     'shopomania_ck.xlimport',
+    'shopomania_ck.core', # Here defines REST API endpoints
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
