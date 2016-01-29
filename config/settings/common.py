@@ -199,7 +199,7 @@ BOWER_INSTALLED_APPS = (
     'angular-i18n',
     'angular-ui-router#~0.2.15',
     'angular-material',
-
+    'angular-resource',
 )
 
 

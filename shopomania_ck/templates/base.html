@@ -1,5 +1,5 @@
 {% load staticfiles i18n %}<!DOCTYPE html>
-<html lang="ru" ng-app="shopomania" layout="column">
+<html lang="ru" ng-app="shopomania" ng-cloak layout="column">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -24,7 +24,6 @@
     {% endblock %}
 
     {% block angular %}
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     {% endblock %}
 
   </head>
@@ -74,7 +73,6 @@
     </div>
   {% endcomment %}
 
-    <div class="container">
 
       {% if messages %}
           {% for message in messages %}
@@ -85,8 +83,6 @@
       {% block content %}
         <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
-
-    </div> <!-- /container -->
 
     {% block modal %}{% endblock modal %}
 
@@ -105,8 +101,6 @@
 
       <!-- Your stuff: Third-party javascript libraries go here -->
 
-      <!-- place project specific Javascript in this file -->
-      <script src="{% static 'js/project.js' %}"></script>
     {% endblock javascript %}
   </body>
 </html>
