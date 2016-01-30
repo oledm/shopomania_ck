@@ -1,0 +1,19 @@
+<md-content class="md-padding">
+    <md-subheader>Последние заказы</md-subheader>
+    <md-list-item class="md-3-line" ng-repeat="order in orders" 
+        ui-sref="order-detail({orderId: order.id})">
+        <img src="/static/images/ava.jpg" class="md-avatar" alt="">
+        <div class="md-list-item-text" layout="column">
+            <h3>{{ order.date | date:'d MMMM, y' }}</h3>
+            <p> {{ order.date | date:'HH:mm:ss' }} </p>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+    </md-list-item>
+
+
+<!-- 
+<input id="fileinput" type="file" name="">
+<label for="fileinput">Выберите файл</label>
+-->
+
+</md-content>

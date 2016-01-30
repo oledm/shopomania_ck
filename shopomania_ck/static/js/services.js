@@ -1,8 +1,14 @@
 'use strict';
 
-var shopomaniaServices = angualar.module('shopomaniaServices', ['ngResource']);
+var shopomaniaServices = angular.module('shopomaniaServices', ['ngResource']);
 
-shopomaniaServices.factory('Orders', ['$resource', function($resource) {
-    return $resource('http://127.0.0.1:8000/api/orders/:orderId', {})
+shopomaniaServices.config(['$resourceProvider', function($resourceProvider) {
+    $resourceProvider.defaults.stripTrailingSlashes = false;
 }]);
+
+shopomaniaServices.factory('Order', ['$resource', 'BASE_URL', 
+    function($resource, BASE_URL) {
+        return $resource(BASE_URL + 'orders/:orderId/');
+    }
+]);
  
