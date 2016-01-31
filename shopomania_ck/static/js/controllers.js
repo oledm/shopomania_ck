@@ -9,7 +9,13 @@ shopomaniaControllers.controller('OrderListCtrl', ['$scope', 'Order',
 ]);
 shopomaniaControllers.controller('OrderDetailCtrl', ['$scope', '$stateParams', 'Order', 
     function($scope, $stateParams, Order) {
-        console.log($stateParams.orderId);
+	$scope.selected = [];
         $scope.order = Order.query({orderId: $stateParams.orderId});
+        $scope.query = {
+            limit: 5,
+            sortOrder: 'customer',
+            page: 1,
+            count: 4,
+        };
     }
 ])

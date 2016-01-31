@@ -1,4 +1,31 @@
 <md-content class="md-padding">
-    <md-subheader>Информация о заказе {{ order }}</md-subheader>
+    <md-toolbar class="md-table-toolbar md-default">
+      <div class="md-toolbar-tools">
+          <span>Информация о заказе {{ order[0].order | date:'d MMMM, y' }}</span>
+      </div>
+</md-toolbar>
+
+<md-table-container>
+  <table md-table md-row-select ng-model="selected" md-progress="promise">
+    <thead md-head md-order="query.sortOrder">
+      <tr md-row>
+        <th md-column md-order-by="customer"><span>Покупатель</span></th>
+        <th md-column md-order-by="description">Товар</th>
+        <th md-column md-numeric md-order-by="price">Цена</th>
+        <th md-column md-order-by="link">Ссылка</th>
+      </tr>
+    </thead>
+    <tbody md-body>
+        <tr md-row md-select="order" md-select-id="{{order.customer}}" md-auto-select ng-repeat="o in order | orderBy: sortOrder | limitTo: query.limit: (query.page - 1) * query.limit">
+        <td md-cell>{{o.customer}}</td>
+        <td md-cell>{{o.description}}</td>
+        <td md-cell>{{o.price}}</td>
+        <td md-cell>{{o.link}}</td>
+      </tr>
+    </tbody>
+  </table>
+</md-table-container>
+
+<md-table-pagination md-label="{page:'Страница', rowsPerPage: 'Строк на станицу', of: 'из'}" md-options=[5,10,20] md-limit="query.limit" md-page="query.page" md-total="{{query.count}}" md-on-paginate="onPaginate" md-page-select></md-table-pagination>
 </md-content>
 <md-button class="md-raised" ui-sref='orders'>Назад</md-button>

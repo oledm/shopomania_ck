@@ -200,6 +200,7 @@ BOWER_INSTALLED_APPS = (
     'angular-ui-router#~0.2.15',
     'angular-material',
     'angular-resource',
+    'angular-material-data-table',
 )
 
 
