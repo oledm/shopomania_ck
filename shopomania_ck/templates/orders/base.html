@@ -24,6 +24,9 @@
 <script src="{% static 'js/app.js' %}"></script>
 <script src="{% static 'js/controllers.js' %}"></script>
 <script src="{% static 'js/services.js' %}"></script>
+{% if debug %}
+    <script src="//localhost:35729/livereload.js"></script>
+{% endif %}
 {% endblock javascript %}
 
 {% block content %}

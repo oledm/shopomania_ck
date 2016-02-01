@@ -42,6 +42,10 @@ module.exports = function (grunt) {
           atBegin: true
         }
       },
+      python: {
+        files: ['<%= paths.app %>/**/*.py'],
+        tasks: ['bgShell:runTests']
+      },
       livereload: {
         files: [
           '<%= paths.js %>/**/*.js',
@@ -53,6 +57,23 @@ module.exports = function (grunt) {
           livereload: true,
         },
       },
+    },
+
+    'django-manage': {
+        options: {
+            app: 'shopomania_ck',
+            // only if your 'manager.py' is on another path 
+            manage_path: './'
+        },
+        test: {
+            options: {
+                command: 'test',
+                verbose: true,
+                args: [
+                    'shopomania_ck.orders',
+                ]
+            }
+        },
     },
 
     // see: https://github.com/sindresorhus/grunt-sass
@@ -111,6 +132,10 @@ module.exports = function (grunt) {
       },
       runDjango: {
         cmd: 'python <%= paths.manageScript %> runserver'
+      },
+      runTests: {
+        cmd: 'python <%= paths.manageScript %> test shopomania_ck.orders',
+        bg: false,
       },
       
     }

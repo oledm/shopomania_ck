@@ -20,13 +20,15 @@ class OrderAPITest(TestCase):
     def test_list(self):
         response = self.client.get(self.create_read_url)
         self.assertEquals(response.status_code, 200)
-        data = len(response.json())
-        self.assertEquals(data, 2)
+        data = response.json()
+        self.assertEquals(len(data), 2)
+        self.assertContains(response, 'Олейник')
+        self.assertContains(response, 'Пешкова')
 
     def test_detail(self):
-        response = self.client.get(self.read_update_delete_url)
+        response = self.client.get(self.create_read_url)
         self.assertEquals(response.status_code, 200)
-        print('response', self.read_update_delete_url)
+        print('response', self.create_read_url)
         data = {'id': 1, 'date': str(self.now), 'description': 'None',
                 'author': 'Олейник', 'comment': 'None'}
         print(response.json())
